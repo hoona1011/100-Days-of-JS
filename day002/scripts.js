@@ -1,15 +1,12 @@
-const number = document.querySelector(".number");
-const btn = document.querySelector(".generate");
+const numberEl = document.querySelector(".number");
+const generateBtn = document.querySelector(".generate");
 
 const generateNumber = () => {
-  // Generate number between 1 and 10
-  const randomNumber = Math.floor(Math.random() * 10 + 1);
-  number.innerHTML = randomNumber;
+  // Generate number between 1 and 100
+  const randomNumber = Math.floor(Math.random() * 100 + 1);
+  numberEl.innerHTML = randomNumber;
 };
 
-btn.addEventListener("click", generateNumber);
+generateBtn.addEventListener("click", generateNumber);
 
 generateNumber();
-
-// const rand = Math.floor(Math.random() * 10 + 1);
-// console.log(rand);
