@@ -21,16 +21,13 @@ function getQuotes(e) {
 
         let output = "";
 
-        for (let i = 0; i < data.length; i += 1) {
+        for (let i = 0; i < number.value; i += 1) {
           const randomNumber = Math.floor(Math.random() * data.length);
-          if (i == number.value) {
-            break;
-          }
           output += `
                     <li>명언: ${data[randomNumber].text}</li>
                     <li>인물: ${data[randomNumber].author}</li>
-                   <hr>
-               `;
+                    <hr>
+                    `;
         }
         quotesEl.innerHTML = output;
       });
@@ -39,24 +36,24 @@ function getQuotes(e) {
 
 //  FUNCTION TO SHUFFLE QUOTES
 
-function shuffle(quotes) {
-  let CI = quotes.length;
-  let tempValue;
-  let randomIndex;
+// function shuffle(quotes) {
+//   let CI = quotes.length;
+//   let tempValue;
+//   let randomIndex;
 
-  // While elements exist in the array
-  while (CI > 0) {
-    randomIndex = Math.floor(Math.random() * CI);
+//   // While elements exist in the array
+//   while (CI > 0) {
+//     randomIndex = Math.floor(Math.random() * CI);
 
-    console.log("한 번 섞었음");
+//     console.log("한 번 섞었음");
 
-    // CI 1 감소
-    CI--;
-    // SWAP THE LAST ELEMENT WITH CI
-    tempValue = quotes[CI]; // 임시로 tempValue에 quotes[CI]값을 저장해놓고
-    quotes[CI] = quotes[randomIndex]; // randomIndex 인덱스에 해당하는 요소의 값을 quotes[CI]에 할당
-    quotes[randomIndex] = tempValue;
-    // 마치 저글링처럼 tempValue를 중간 저장소로 이용해서 quotes[CI]와 quotes[randomIndex]의 값을 교환해주는 역할
-  }
-  return quotes;
-}
+//     // CI 1 감소
+//     CI--;
+//     // SWAP THE LAST ELEMENT WITH CI
+//     tempValue = quotes[CI]; // 임시로 tempValue에 quotes[CI]값을 저장해놓고
+//     quotes[CI] = quotes[randomIndex]; // randomIndex 인덱스에 해당하는 요소의 값을 quotes[CI]에 할당
+//     quotes[randomIndex] = tempValue;
+//     // 마치 저글링처럼 tempValue를 중간 저장소로 이용해서 quotes[CI]와 quotes[randomIndex]의 값을 교환해주는 역할
+//   }
+//   return quotes;
+// }
