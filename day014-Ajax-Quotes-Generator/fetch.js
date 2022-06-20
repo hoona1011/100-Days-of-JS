@@ -13,11 +13,14 @@ function getQuotes(e) {
   } else {
     fetch(URL)
       .then(function (response) {
+        console.log(response);
+
         return response.json();
       })
       .then(function (data) {
         //셔플은 필요 이상의 연산을 하는 단점이 있음
         // shuffle(data);
+        console.log("asd", data);
 
         let output = "";
 
@@ -30,6 +33,11 @@ function getQuotes(e) {
                     `;
         }
         quotesEl.innerHTML = output;
+
+        return data;
+      })
+      .then((x) => {
+        console.log(x);
       });
   }
 }
