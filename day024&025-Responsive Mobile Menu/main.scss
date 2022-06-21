@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
-
+@import "./mixin";
 :root {
   --white: #fff;
   --black: #1c2b2d;
@@ -24,6 +24,7 @@ html {
 
 body {
   font-family: "Open Sans", sans-serif;
+  background-color: orange;
 }
 
 p {
@@ -50,15 +51,15 @@ header {
 }
 
 nav {
-  height: 7.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
+
 .logo {
   font-size: 4.5rem;
   color: var(--color-sec);
+
+  border: 1px solid red;
 }
 
 .nav-list {
@@ -79,7 +80,14 @@ nav {
   text-decoration: none;
 }
 
-/* Section */
+#hamburger {
+  display: none;
+}
+.close {
+  display: none;
+}
+
+/* Section 볼 필요 없음*/
 section {
   padding: 5rem 0;
 }
@@ -107,64 +115,62 @@ h2 {
 /* RESPONSIVE MENU */
 /* RESPONSIVE MENU */
 /* RESPONSIVE MENU */
-@media screen and (max-width: 600px) {
-  .flex {
+
+@include tablet {
+  body {
+    background-color: green;
+  }
+  nav {
     flex-direction: column;
   }
-
   nav i {
     color: var(--white);
     font-size: 2.4rem;
     cursor: pointer;
   }
 
+  #hamburger {
+    display: block;
+    color: white;
+    font-size: 20px;
+  }
   .close {
+    display: none;
     position: absolute;
     right: 3rem;
-    transform: translateY(-20rem);
-    transition: all 0.5s;
-    z-index: 11;
-  }
-
-  .hamburger {
-    z-index: 11;
-  }
-
-  .nav-list,
-  .nav-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    display: block;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding-top: 2rem;
-    transform: translateX(200%);
-    transition: all 0.5s;
   }
 
   .nav-list {
-    z-index: 1;
-  }
+    display: none;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2rem 0;
+    margin-top: 1.5rem;
 
-  .nav-wrapper {
-    width: 100%;
-    transform: translateX(-200%);
-    z-index: 1;
+    &.active {
+      display: flex;
+    }
   }
 
   .nav-list li {
-    border-bottom: 1px solid var(--white);
-    padding: 0.7rem 0 0.7rem 1rem;
+    padding: 5px 0;
+    font-size: 1.6rem;
+    text-align: center;
   }
 
-  .nav-list li a {
-    color: var(--white);
-    transition: all 0.3s;
-  }
   .nav-list li a:hover {
     color: var(--color-sec);
-    margin-left: 1rem;
+  }
+
+  #hamburger {
+    display: block;
+    position: absolute;
+
+    right: 15px;
+    top: 10px;
+  }
+  // SECTION
+  .flex {
+    flex-direction: column;
   }
 }
